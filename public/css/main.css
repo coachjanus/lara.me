@@ -1,0 +1,37 @@
+/* main.css */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
+
+@import url('common.css');
+
+@import url('shop.css');
+@import url('blog.css');
+
+aside ol {
+    color: crimson;
+    /* list-style: lower-alpha; */
+    /* list-style: lower-roman; */
+    /* list-style: lower-greek; */
+    list-style: none;
+}
+
+nav ol {
+    /* color: rgb(196, 17, 142); */
+    color: #ff0000;
+    color: #f00;
+    color: red;
+    color: rgb(255, 255, 0);
+    color: rgba(255, 255, 0, .5);
+    color: rgb(255 255 0 /.5);
+    background-color: hsl(20, 90%, 40%);
+    background-color: hsla(20, 90%, 40%, .5);
+    /* list-style: lower-alpha; */
+    list-style: lower-roman;
+    text-decoration: line-through;
+    /* list-style: lower-greek; */
+    /* list-style: none; */
+}
+
+
+#subheader {
+    color: aqua;
+}
