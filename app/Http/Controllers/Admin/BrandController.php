@@ -11,7 +11,7 @@ class BrandController extends Controller
     public function index()
     {
         $brands = DB::table("brands")->get();
-        return view("admin.brands.index", ['brands'=>$brands, "title"=>"Brands Management"]);
+        return view("admin.brands.index", ['brands'=>$brands, "title"=>"All Brands", "breadcrumb"=>"Brands Management"]);
     }
 
     public function create()

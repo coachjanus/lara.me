@@ -22,4 +22,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/admin/brands', [BrandController::class, 'index']);
+
+Route::get('/admin/brands/create', [BrandController::class, 'create']);
 });
