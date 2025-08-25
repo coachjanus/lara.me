@@ -7,7 +7,7 @@
                 <li>Admin</li>
                 <li>{{ $breadcrumb }}</li>
                 </ul>
-                <a href="#" class="button blue">
+                <a href="{{ route("admin.brands.create") }}" class="button blue">
                     <span>Create new</span>
                 </a>
                 

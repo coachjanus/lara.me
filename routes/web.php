@@ -22,7 +22,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/admin/brands', [BrandController::class, 'index']);
+    
+    Route::get('/admin/brands', [BrandController::class, 'index'])->name('admin.brands.index');
 
-Route::get('/admin/brands/create', [BrandController::class, 'create']);
+    Route::get('/admin/brands/create', [BrandController::class, 'create'])->name('admin.brands.create');
+
+    Route::post('/admin/brands/store', [BrandController::class, 'store'])->name('admin.brands.store');
 });
