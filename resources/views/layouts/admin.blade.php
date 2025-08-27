@@ -95,9 +95,15 @@
         <p class="menu-label">Examples</p>
         <ul class="menu-list">
         <li class="--set-active-tables-html">
-            <a href="tables.html">
+            <a href="{{ route("admin.brands.index") }}">
             <span class="icon"><i class="mdi mdi-table"></i></span>
-            <span class="menu-item-label">Tables</span>
+            <span class="menu-item-label">Brands</span>
+            </a>
+        </li>
+        <li class="--set-active-tables-html">
+            <a href="{{ route("admin.categories.index") }}">
+            <span class="icon"><i class="mdi mdi-table"></i></span>
+            <span class="menu-item-label">Categories</span>
             </a>
         </li>
         <li class="--set-active-forms-html">
@@ -162,6 +168,7 @@
     <section class="section main-section">
     
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <x-flesh></x-flesh>
         
             @if (isset($header))
                 {{ $header }}

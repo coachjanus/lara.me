@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\CreateBrandRequest;
 use App\Models\Brand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -29,12 +30,12 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateBrandRequest $request)
     {
-        $request->validate([
-            "name" => ["required", "max:255"],
-            "description" =>[ "required"],
-        ]);
+        // $request->validate([
+        //     "name" => ["required", "max:255"],
+        //     "description" =>[ "required"],
+        // ]);
 
         Brand::create(["name"=>$request->name, "description"=>$request->description]);
         return redirect()->route('admin.brands.index');

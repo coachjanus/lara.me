@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-// 
-class Brand extends Model
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Category extends Model
 {
     use Sluggable;
-    protected $fillable = ["name", "description"];
+    /** @use HasFactory<\Database\Factories\CategoryFactory> */
+    use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = ["name",];
 
     public function sluggable(): array
     {
