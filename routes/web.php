@@ -16,6 +16,11 @@ Route::get('/admin/brands/create', [BrandController::class, 'create']);
 
 Route::get('/admin/categories/trashed', [CategoryController::class, 'trashed'])->name('admin.categories.trashed');
 
+
+Route::get('/mailable', function () {
+// $invoice = App\Models\Invoice::find(1);
+    return new App\Mail\OrderShipped();
+});
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
