@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\{BrandController, CategoryController};
+use App\Livewire\Admin\Users\UserList;
+use App\Livewire\Admin\Users;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +23,9 @@ Route::get('/mailable', function () {
 // $invoice = App\Models\Invoice::find(1);
     return new App\Mail\OrderShipped();
 });
+
+Route::get("admin/users", UserList::class);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
