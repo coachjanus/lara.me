@@ -26,6 +26,18 @@ Route::get('/mailable', function () {
 
 Route::get("admin/users", UserList::class);
 
+use App\Livewire\Admin\Products\{CreateProduct, ProductTable, UpdateProduct};
+
+Route::get('admin/products', ProductTable::class)->name('admin.products');
+Route::get('admin/products/create', CreateProduct::class)->name('admin.products.create');
+Route::get('admin/products/{product}/update', UpdateProduct::class)->name('admin.products.update');
+
+use App\Livewire\Admin\Posts\{CreatePost, PostTable, UpdatePost};
+
+Route::get('admin/posts', PostTable::class)->name('admin.posts');
+Route::get('admin/posts/create', CreatePost::class)->name('admin.posts.create');
+// Route::get('admin/posts/{post}/update', UpdatePost::class)->name('admin.posts.update');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
