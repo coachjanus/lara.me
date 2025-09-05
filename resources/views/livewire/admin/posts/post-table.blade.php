@@ -1,4 +1,18 @@
 <div>
+    <x-slot name="breadcrumb">
+        <section class="is-title-bar">
+            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+                <ul>
+                <li>Admin</li>
+                <li>{{ $breadcrumb }}</li>
+                </ul>
+                <a href="{{ route("admin.posts.create") }}" class="button blue">
+                    <span>Create new</span>
+                </a>
+                
+            </div>
+        </section>
+    </x-slot>
    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
    
       <div class="flex justify-between items-center mb-3 mt-1 pl-3">

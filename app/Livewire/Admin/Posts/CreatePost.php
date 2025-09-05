@@ -6,15 +6,24 @@ use Livewire\Component;
 use Livewire\Attributes\{Validate, Layout};
 use App\Models\Post;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use App\Livewire\Forms\PostForm;
 
 #[Layout("layouts.admin")]
 class CreatePost extends Component
 {
+    use WithFileUploads;
     #[Validate('required')]
     public $post_title = '';
     #[Validate('required')]
     public $content = '';
     public $slug = '';
+
+    public $title = 'New Post';
+    public $breadcrumb = "Post management";
+
+    public PostForm $form;
+
 
     public function save() 
     {

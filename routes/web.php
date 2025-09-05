@@ -24,7 +24,7 @@ Route::get('/mailable', function () {
     return new App\Mail\OrderShipped();
 });
 
-Route::get("admin/users", UserList::class);
+Route::get("admin/users", UserList::class)->name('admin.users');
 
 use App\Livewire\Admin\Products\{CreateProduct, ProductTable, UpdateProduct};
 

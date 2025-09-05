@@ -19,82 +19,87 @@ text-sm border border-slate-200 rounded transition duration-300 ease focus:outli
 focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
 placeholder="Search for user..." wire:model.live.300m="search" />
 
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+     <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
-                <th scope="col" class="px-6 py-3 border-b border-slate-300 bg-slate-50" wire:click="setSortFunctionality('name')">
-            <button class="flex items-center ml-1">
-            User Name
-            @if ($sortByColumn != 'name')
-            <x-buttons.up-down />
-            @elseif($sortDirection == 'ASC')
-            <x-buttons.up />
-            @else
-            <x-buttons.down />
-            @endif
-            </button>
-            </th>
-               
-
-                <th scope="col" class="px-6 py-3">
-                    <div class="flex items-center">
-                        User email
-                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-  </svg></a>
-                    </div>
+                <th scope="col" class="px-6 py-3" wire:click="setSort('name')">
+                    <button class="flex items-center ml-1">
+                        Name
+                        @if ($sortByColumn != 'name')
+                        <x-buttons.up-down />
+                        @elseif($sortDirection == 'ASC')
+                        <x-buttons.up />
+                        @else
+                        <x-buttons.down />
+                        @endif
+                    </button>
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    <div class="flex items-center">
-                        Status
-                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-  </svg></a>
-                    </div>
+                <th scope="col" class="px-6 py-3" wire:click="setSort('email')">
+                    <button class="flex items-center ml-1">
+                        Email
+                        @if ($sortByColumn != 'email')
+                        <x-buttons.up-down />
+                        @elseif($sortDirection == 'ASC')
+                        <x-buttons.up />
+                        @else
+                        <x-buttons.down />
+                        @endif
+                    </button>
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    <div class="flex items-center">
+                <th scope="col" class="px-6 py-3" wire:click="setSort('created_at')">
+                    <button class="flex items-center ml-1">
                         Created at
-                        <a href="#"><svg class="w-3 h-3 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M8.574 11.024h6.852a2.075 2.075 0 0 0 1.847-1.086 1.9 1.9 0 0 0-.11-1.986L13.736 2.9a2.122 2.122 0 0 0-3.472 0L6.837 7.952a1.9 1.9 0 0 0-.11 1.986 2.074 2.074 0 0 0 1.847 1.086Zm6.852 1.952H8.574a2.072 2.072 0 0 0-1.847 1.087 1.9 1.9 0 0 0 .11 1.985l3.426 5.05a2.123 2.123 0 0 0 3.472 0l3.427-5.05a1.9 1.9 0 0 0 .11-1.985 2.074 2.074 0 0 0-1.846-1.087Z"/>
-  </svg></a>
-                    </div>
+                        @if ($sortByColumn != 'created_at')
+                        <x-buttons.up-down />
+                        @elseif($sortDirection == 'ASC')
+                        <x-buttons.up />
+                        @else
+                        <x-buttons.down />
+                        @endif
+                    </button>
                 </th>
+               
                 <th scope="col" class="px-6 py-3">
-                    <span class="sr-only">Edit</span>
+                    Action
                 </th>
             </tr>
         </thead>
-        
         <tbody>
-           
-        @foreach ($users as $item)
-            <tr class="bg-white border-b border-gray-200">
+            @foreach ($users as $user)
+            
+            
+            <tr class="odd:bg-white even:bg-gray-50 border-b">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                    {{ $item->name }}
+                    {{ $user->name }}
                 </th>
                 <td class="px-6 py-4">
-                    {{ $item->email }}
-                </td>
-                <td class="px-6 py-4">  
-                    1
+                {{ $user->email }}
                 </td>
                 <td class="px-6 py-4">
-                    {{ $item->created_at }}
+                {{ $user->created_at }}
                 </td>
-                <td class="px-6 py-4 text-right">
-                    <button type="button" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4
-focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600
-dark:hover:bg-blue-700 dark:focus:ring-blue-900">Edit</button>
-<button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4
-focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600
-dark:hover:bg-red-700 dark:focus:ring-red-900">Delete</button>
+                
+                <td class="px-6 py-4">
+                    <button type="button" class="focus:outline-none text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900">
+                        Edit
+                    </button>
+                    
+                    <button
+                        type="button"
+                        wire:click="delete"
+                        wire:confirm="Are you sure you want to delete this user?"
+                        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                        >
+                        Delete
+                    </button>
                 </td>
             </tr>
-        @endforeach
+
+            @endforeach
             
         </tbody>
     </table>
+    {{ $users->links() }}
 </div>
 
 

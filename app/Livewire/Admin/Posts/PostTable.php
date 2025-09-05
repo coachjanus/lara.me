@@ -18,6 +18,8 @@ class PostTable extends Component
 
     public $sortDirection = 'DESC';
 
+    public $breadcrumb = "Post management";
+
     public function setSortFunctionality($columnName)
     {
         if ($this->sortByColumn == $columnName) {

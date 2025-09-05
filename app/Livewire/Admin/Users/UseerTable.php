@@ -12,6 +12,9 @@ class UseerTable extends Component
     public $perPage = 7;
     public $search = '';
 
+    
+    
+
     public $sortByColumn = 'created_at';
 
     public $sortDirection = 'DESC';

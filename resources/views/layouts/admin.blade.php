@@ -110,21 +110,21 @@
             </a>
         </li>
         <li class="--set-active-forms-html">
-            <a href="forms.html">
+            <a href="{{ route('admin.users') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-            <span class="menu-item-label">Forms</span>
+            <span class="menu-item-label">Users</span>
             </a>
         </li>
         <li class="--set-active-profile-html">
-            <a href="profile.html">
+            <a href="{{route('admin.products')}}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-            <span class="menu-item-label">Profile</span>
+            <span class="menu-item-label">Products</span>
             </a>
         </li>
         <li>
-            <a href="login.html">
+            <a href="{{route('admin.posts')}}">
             <span class="icon"><i class="mdi mdi-lock"></i></span>
-            <span class="menu-item-label">Login</span>
+            <span class="menu-item-label">Posts</span>
             </a>
         </li>
         <li>

@@ -14,8 +14,7 @@
             </div>
         </section>
     </x-slot>
-    <h2>{{ $title }}</h2>
-    <p>{{ $user }}</p>
+    
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
