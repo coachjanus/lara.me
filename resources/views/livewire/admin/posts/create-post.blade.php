@@ -1,41 +1,35 @@
 <div class="px-5">
-    <x-slot name="breadcrumb">
-        <section class="is-title-bar">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <ul>
-                <li>Admin</li>
-                <li>{{ $breadcrumb }}</li>
-                </ul>
-                <a href="{{ route("admin.posts") }}" class="button blue">
-                    <span>All posts</span>
-                </a>
-                
-            </div>
-        </section>
-    </x-slot>
     <x-slot name="header">
         <h1>{{ $title }}</h1>
     </x-slot>
     <div class="py-12">
         <form wire:submit="save" class="nmax-w-sm mx-auto">
-            <div class="grid gap-6 mb-6 md:grid-cols-2">
                 <div class="mb-5">
-                    <label for="post_title" class="block mb-2 text-gray-900">Post title</label>
-                    <input type="text" id="post_title" class="bg-gray-50 border border-gray-300 text-gray-900  w-full" wire:model="form.post_title" required placeholder="Enter post title">
+                    <label for="name" class="block mb-2 text-gray-900">Post title</label>
+                    <input type="text" id="name" class="bg-gray-50 border border-gray-300 text-gray-900  w-full" wire:model="form.post_title" required placeholder="Enter post title">
                     <div>
                         @error('form.post_title') <span class="error">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                
+
             <div class="mb-5">
-                <label for="content" class="block mb-2 text-gray-900">Post content</label>
-                <textarea wire:model="form.content" required  id="content" class="block p-2,5 text-gray-900 border border-gray-300 w-full" rows="4"></textarea>
+                <label for="description" class="block mb-2 text-gray-900">Post content</label>
+                <textarea wire:model="form.content" required  id="description" class="block p-2,5 text-gray-900 border border-gray-300 w-full" rows="4"></textarea>
                 <div>
                     @error('form.content') <span class="error">{{ $message }}</span> @enderror
                 </div>
             </div>
 
+            <div class="mb-5">
+                    <label for="category" class="block mb-2 text-sm font-medium text-gray-900">Select tags</label>
+                    <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" wire:model.blur="form.tags" multiple>
+                        <option selected>Choose some tags</option>
+                        @foreach ($tags as $key => $value )
+                            <option value="{{$key}}">{{$value}}</option>
+                        @endforeach
+                    </select>
 
+                </div>
 
             <div class="mb-5">
                 <div class="flex items-center justify-center w-full mt-4">
@@ -57,13 +51,23 @@
                     <input id="dropzone-file" type="file" class="hidden" wire:model="form.cover" />
                     </label>
                 </div>
-            </div> 
+            </div>
 
 
-            
+            <fieldset>
+                <legend class="sr-only">Status</legend>
+                <div class="flex items-center justify-between mb-4">
+                    @foreach ($postStatus as $status)
+                    <input type="radio" wire:model="form.status" value="{{$status->value}}" id="status">
+                    <label for="status" class="block mb-2 text-gray-900">{{ $status->name}}</label>
+                    
+                    @endforeach
+                </div>
+            </fieldset>
 
             <button type="submit" class="bg-blue-700 text-white px-5 py-2.5">Save</button>
 
         </form>
     </div>
 </div>
+

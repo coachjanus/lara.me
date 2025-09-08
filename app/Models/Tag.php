@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
-// 
-class Brand extends Model
-{
-    use Sluggable;
-    protected $fillable = ["name", "description"];
 
+class Tag extends Model
+{
+    /** @use HasFactory<\Database\Factories\TagFactory> */
+    use HasFactory;
+    use Sluggable;
+
+    protected $fillable = ["name"];
     public function sluggable(): array
     {
         return [
@@ -19,8 +22,7 @@ class Brand extends Model
         ];
     }
 
-    public function products()
-    {
-        return $this->hasMany(Product::class);
+    public function posts() {
+        return $this->belongsToMany(Post::class);
     }
 }

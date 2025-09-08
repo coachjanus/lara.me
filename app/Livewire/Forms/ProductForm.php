@@ -46,10 +46,7 @@ class ProductForm extends Form
         $this->oldCover = $product->cover;
     }
 
-    // public function update() {
-    //     $this->validate();
-    //     $this->product->update($this->all());
-    // }
+   
 
     public function update()
     {

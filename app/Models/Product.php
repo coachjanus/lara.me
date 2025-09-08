@@ -26,4 +26,11 @@ class Product extends Model
         $query->where('name', 'like', "%{$value}%")
         ->orWhere('price', 'like', "%{$value}%");
     }
+
+    public function brand() {
+        return $this->belongsTo(Brand::class);
+    }
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
