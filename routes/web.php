@@ -1,14 +1,21 @@
 <?php
 
+// use App\Livewire\Main\BlogPage;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\{BrandController, CategoryController};
 use App\Livewire\Admin\Users\UserList;
 use App\Livewire\Admin\Users;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+use App\Livewire\Main\{HomePage, BlogPage, PostShow};
+Route::get('/', HomePage::class)->name('home');
+Route::get('/blog', BlogPage::class)->name('blog');
+Route::get('/blog/post', PostShow::class)->name('post.show');
+
 
 Route::get('/about', [AboutController::class, 'index']);
 

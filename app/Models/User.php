@@ -69,4 +69,31 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         $query->where('name','like',"%{$value}%")->orWhere('email','like',"%{$value}%");
     }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+
+    public function likes() {
+        return $this->belongsToMany(Post::class, 'post_like')->withTimestamps();
+    }
+
+    public function hasLiked(Post $post) {
+        return $this->likes()->where('post_id', $post->id)->exists();
+    }
+    
+    // public function stars() {
+    //     return $this->belongsToMany(Product::class, 'product_star')->withTimestamps();
+    // }
+
+    // public function hasStars(Product $product) {
+    //     return $this->stars()->where('product_id', $product->id)->exists();
+    // }
 }
