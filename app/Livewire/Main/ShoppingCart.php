@@ -15,8 +15,9 @@ class ShoppingCart extends Component
     protected $listeners = [
         'cartUpdated' => '$refresh'
     ];
-
+// 
     public function remove($id) {
+        \Cart::remove($id);
         $this->dispatch('cart_updated');
     }
 

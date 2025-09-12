@@ -33,4 +33,12 @@ class Product extends Model
     public function category() {
         return $this->belongsTo(Category::class);
     }
+
+     public function stars() {
+        return $this->belongsToMany(User::class, 'product_star')->withTimestamps();
+    }
+
+    public function scopePopular($query) {
+        $query->withCount('stars')->orderBy("stars_count", "desc");
+    }
 }

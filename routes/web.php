@@ -11,19 +11,19 @@ use App\Livewire\Admin\Users;
 //     return view('welcome');
 // });
 
-use App\Livewire\Main\{HomePage, BlogPage, PostShow};
+use App\Livewire\Main\{HomePage, BlogPage, PostShow, Catalog, ShoppingCart};
 Route::get('/', HomePage::class)->name('home');
 Route::get('/blog', BlogPage::class)->name('blog');
 Route::get('blog/show', PostShow::class)->name('post.show');
 
 // Route::get('/blog/show/{post:slug}', PostShow::class)->name('post.show');
 
-// Route::get('shop', Catalog::class)->name('shop');
-// Route::get('shopping-cart', ShoppingCart::class)->name('shopping.cart');
+Route::get('shop', Catalog::class)->name('shop');
+Route::get('shopping-cart', ShoppingCart::class)->name('shopping.cart');
 
-// Route::get('/checkout', function () {
-//     return 'Checkout!';
-// })->name('checkout');
+Route::get('/checkout', function () {
+    return 'Checkout!';
+})->name('checkout');
 
 Route::get('/about', [AboutController::class, 'index']);
 

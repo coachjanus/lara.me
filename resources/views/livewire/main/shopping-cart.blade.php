@@ -102,12 +102,12 @@
                       </div>
                     </div>
 
-                  <a href="{{ route('checkout') }}">
-                    <button class="flex justify-center w-full px-7 py-2 mt-6 font-medium text-white uppercase bg-indigo-600 rounded-md shadow item-center hover:bg-indigo-700 focus:shadow-outline focus:outline-none">
+                  
+                    <button class="flex justify-center w-full px-7 py-2 mt-6 font-medium text-white uppercase bg-indigo-600 rounded-md shadow item-center hover:bg-indigo-700 focus:shadow-outline focus:outline-none" wire:click.prevent="clear()">
                         <x-main.credit-card />
                       <span class="ml-2 mt-5px">checkout</span>
                     </button>
-                  </a>
+               
               </div>
            </aside>
                     
