@@ -24,5 +24,5 @@
     <img class="h-8 w-8 rounded-full object-cover" src="{{ $author->profile_photo_url }}" alt="{{ $author->name }}" />
 @endif
 
-<span class="mr-1 {{ $textSize }}">&nbsp;author </span>
+<span class="mr-1 {{ $textSize }}">&nbsp;{{$author->name??"Anonimouse"}} </span>
 

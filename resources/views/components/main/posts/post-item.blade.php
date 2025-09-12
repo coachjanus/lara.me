@@ -14,7 +14,7 @@
             </div>
             <h2 class="text-xl font-bold text-gray-900">
                 <a wire:navigate href="{{ route('post.show', $post->slug) }}">
-                    {{ $post->title }}
+                    {{ $post->post_title }}
                 </a>
             </h2>
 

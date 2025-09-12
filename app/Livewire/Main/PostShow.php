@@ -19,7 +19,7 @@ class PostShow extends Component
         $this->tags = Tag::whereHas('posts', function($query) {
             $query->published();
         })->take(10)->get();
-        $this->resentPosts = Post::latest()->take(4)->get();
+        $this->resentPosts = Post::latest()->get();
     }
 
     public function render()
