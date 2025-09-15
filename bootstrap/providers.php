@@ -5,4 +5,6 @@ return [
     App\Providers\FortifyServiceProvider::class,
     App\Providers\JetstreamServiceProvider::class,
     Darryldecode\Cart\CartServiceProvider::class,
+    Spatie\Permission\PermissionServiceProvider::class,
+
 ];

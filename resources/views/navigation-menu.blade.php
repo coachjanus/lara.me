@@ -13,15 +13,18 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     
-                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" wire:navigate>
                         {{ __('Home') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('blog') }}" :active="request()->routeIs('blog')">
+                    <x-nav-link href="{{ route('blog') }}" :active="request()->routeIs('blog')" wire:navigate>
                         {{ __('Blog') }}
                     </x-nav-link>
-                    @auth
-                    <x-nav-link href="{{ route('shop') }}" :active="request()->routeIs('shop')">
+                    <x-nav-link href="{{ route('shop') }}" :active="request()->routeIs('shop')" wire:navigate>
                         {{ __('Shop') }}
+                    </x-nav-link>
+                    @auth
+                    <x-nav-link href="{{ route('shopping.cart') }}" :active="request()->routeIs('shopping.cart')" wire:navigate>
+                        {{ __('Your Cart') }}
                     </x-nav-link>
                     @endauth
                 </div>

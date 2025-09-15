@@ -13,7 +13,7 @@
       <article class="col-span-3 mb-12 px-6">
         <img class="mx-auto w-full h-40 object-cover my-2 rounded-lg" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
         <h1 class="text-4xl font-bold text-left text-gray-800">
-            {{ $post->title }}
+            {{ $post->post_title }}
         </h1>
         <div class="flex items-center justify-between mt-2">
             <div class="flex items-center py-5">

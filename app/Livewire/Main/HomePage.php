@@ -14,11 +14,11 @@ class HomePage extends Component
 {
     public $latestPosts;
 
-    // public function mount() {
-    //     $this->latestPosts = Cache::remember('latestPosts', now()->addDay(), function(){
-    //         return Post::published()->with('tags')->latest('updated_at')->take(3)->get();
-    //     });
-    // }
+    public function mount() {
+        $this->latestPosts = Cache::remember('latestPosts', now()->addDay(), function(){
+            return Post::published()->with('tags')->latest('updated_at')->take(3)->get();
+        });
+    }
     public function render()
     {
         return view('livewire.main.home-page');

@@ -2,7 +2,7 @@
 <div class="pt-10 mt-10 border-t border-gray-100 comments-box">
     <h2 class="mb-5 text-2xl font-semibold text-gray-900">Discussions</h2>
     @auth
-        <textarea wire:model="comment"
+        <textarea wire:model="message"
             class="w-full p-4 text-sm text-gray-700 border-gray-200 rounded-lg bg-gray-50 focus:outline-none placeholder:text-gray-400"
             cols="30" rows="7"></textarea>
         <button wire:click="postComment()"
@@ -20,7 +20,7 @@
                     <span class="text-gray-500">. {{ $comment->created_at->diffForHumans() }}</span>
                 </div>
                 <div class="text-sm text-justify text-gray-700">
-                    {{ $comment->comment }}
+                    {{ $comment->message }}
                 </div>
             </div>
         @empty

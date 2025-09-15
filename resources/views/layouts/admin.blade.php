@@ -109,12 +109,14 @@
             <span class="menu-item-label">Categories</span>
             </a>
         </li>
+        @hasanyrole('Admin|Product Manager')
         <li class="--set-active-forms-html">
             <a href="{{ route('admin.users') }}">
             <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
             <span class="menu-item-label">Users</span>
             </a>
         </li>
+
         <li class="--set-active-profile-html">
             <a href="{{route('admin.products')}}">
             <span class="icon"><i class="mdi mdi-account-circle"></i></span>
@@ -127,6 +129,7 @@
             <span class="menu-item-label">Posts</span>
             </a>
         </li>
+        @endhasanyrole
         <li>
             <a class="dropdown">
             <span class="icon"><i class="mdi mdi-view-list"></i></span>

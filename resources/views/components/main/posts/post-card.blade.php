@@ -2,7 +2,7 @@
 @props(['post'])
 
 <div {{ $attributes }}>
-    <a wire:navigate href="{{ route('post.show', $post->slug) }}">
+    <a wire:navigate href="{{ route('post.show', $post) }}">
         <div>
             <img class="mx-auto mw-100 rounded-xl" src="{{ $post->getThumbnailUrl() }}">
         </div>
@@ -14,7 +14,7 @@
             @endif
             <p class="text-sm text-gray-500">{{ $post->updated_at }}</p>
         </div>
-        <a wire:navigate href="{{ route('post.show', $post->slug) }}"
-            class="text-xl font-bold text-gray-900">{{ $post->title }}</a>
+        <a wire:navigate href="{{ route('post.show', $post) }}"
+            class="text-xl font-bold text-gray-900">{{ $post->post_title }}</a>
     </div>
 </div>

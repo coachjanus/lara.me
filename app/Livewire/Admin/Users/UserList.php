@@ -15,6 +15,6 @@ class UserList extends Component
 
     public function render()
     {
-        return view('livewire.admin.users.user-list')->with(['user' => Auth::user()->name]);
+        return view('livewire.admin.users.user-list');
     }
 }

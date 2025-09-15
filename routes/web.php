@@ -14,7 +14,8 @@ use App\Livewire\Admin\Users;
 use App\Livewire\Main\{HomePage, BlogPage, PostShow, Catalog, ShoppingCart};
 Route::get('/', HomePage::class)->name('home');
 Route::get('/blog', BlogPage::class)->name('blog');
-Route::get('blog/show', PostShow::class)->name('post.show');
+Route::get('/post/show/{post}', PostShow::class)->name('post.show');
+
 
 // Route::get('/blog/show/{post:slug}', PostShow::class)->name('post.show');
 
@@ -47,11 +48,14 @@ Route::get('admin/products', ProductTable::class)->name('admin.products');
 Route::get('admin/products/create', CreateProduct::class)->name('admin.products.create');
 Route::get('admin/products/{product}/update', UpdateProduct::class)->name('admin.products.update');
 
-use App\Livewire\Admin\Posts\{CreatePost, PostTable, UpdatePost};
+use App\Livewire\Admin\Posts\{CreatePost, PostTable, EditPost};
 
-Route::get('admin/posts', PostTable::class)->name('admin.posts');
-Route::get('admin/posts/create', CreatePost::class)->name('admin.posts.create');
+// Route::get('admin/posts', PostTable::class)->name('admin.posts');
+// Route::get('admin/posts/create', CreatePost::class)->name('admin.posts.create');
 // Route::get('admin/posts/{post}/update', UpdatePost::class)->name('admin.posts.update');
+
+
+
 
 Route::middleware([
     'auth:sanctum',
@@ -72,7 +76,12 @@ Route::middleware([
         Route::resource('admin/categories', CategoryController::class);
     });
 
-   
+    Route::group(['middlewares'=>['role:Admin|Product Manager']], function(){
+        Route::get('/admin/posts', PostTable::class)->name('admin.posts');
+        Route::get('/admin/posts/create', CreatePost::class)->name('admin.posts.create');
+        Route::get('/admin/posts/{post}/edit', EditPost::class)->name('admin.posts.edit');    
+    });
+
 });
 
 

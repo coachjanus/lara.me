@@ -3,7 +3,7 @@
 <article {{ $attributes->merge(['class' => '[&:not(:last-child)]:border-b border-gray-100 pb-10']) }}>
     <div class="grid items-start grid-cols-12 gap-3 mt-5 article-body">
         <div class="flex items-center col-span-4 article-thumbnail">
-            <a wire:navigate href="{{ route('post.show', $post->slug) }}">
+            <a wire:navigate href="{{ route('post.show', $post) }}">
                 <img class="mx-auto mw-100 rounded-xl" src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
             </a>
         </div>
@@ -13,7 +13,7 @@
                 <span class="text-xs text-gray-500">. {{ $post->created_at->diffForHumans() }} &nbsp;|&nbsp; </span>&nbsp;<span class="text-sm text-gray-500">{{ $post->getReadingTime() }} min. read</span>
             </div>
             <h2 class="text-xl font-bold text-gray-900">
-                <a wire:navigate href="{{ route('post.show', $post->slug) }}">
+                <a wire:navigate href="{{ route('post.show', $post) }}">
                     {{ $post->post_title }}
                 </a>
             </h2>

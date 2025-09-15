@@ -6,9 +6,11 @@
                 <li>Admin</li>
                 <li>{{ $breadcrumb }}</li>
                 </ul>
+                @hasanyrole('Admin|Product Manager')
                 <a href="{{ route("admin.posts.create") }}" class="button blue">
                     <span>Create new</span>
                 </a>
+                @endhasanyrole
                 
             </div>
         </section>

@@ -16,20 +16,20 @@ class PostComments extends Component
     public Post $post;
 
     #[Rule('min:3|max:256')]
-    public string $comment;
+    public string $message;
 
     public function postComment() {
         
         if(auth()->guest()) {
             return;
         }
-        $this->validateOnly('comment');
+        $this->validateOnly('message');
 
         $this->post->comments()->create([
-            'comment' => $this->comment,
+            'message' => $this->message,
             'user_id' => auth()->id()
         ]);
-        $this->reset('comment');
+        $this->reset('message');
     }
 
     #[Computed()]
